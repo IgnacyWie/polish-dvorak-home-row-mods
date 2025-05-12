@@ -1,0 +1,71 @@
+
+
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd yes
+)
+
+
+(defvar
+  tap-time 150
+  hold-time 200
+)
+
+(defalias
+  a (multi f24 (tap-hold $tap-time $hold-time a lmet))
+  o (multi f24 (tap-hold $tap-time $hold-time o lalt))
+  e (multi f24 (tap-hold $tap-time $hold-time e lsft))
+  u (multi f24 (tap-hold $tap-time $hold-time u lctl))
+  h (multi f24 (tap-hold $tap-time $hold-time h rctl))
+  t (multi f24 (tap-hold $tap-time $hold-time t rsft))
+  n (multi f24 (tap-hold $tap-time $hold-time n lalt))
+  s (multi f24 (tap-hold $tap-time $hold-time s rmet))
+)
+
+
+;; Toggle layer
+(defalias
+  toggle_polish (layer-toggle polish_dia)
+  caps_toggle (tap-hold $tap-time $hold-time esc (layer-toggle polish_dia))
+)
+
+;; Polish diacritics
+(defalias
+  e_ogonek (cmd wtype "ę")
+  o_acute  (cmd wtype "ó")
+  a_ogonek (cmd wtype "ą")
+  s_acute  (cmd wtype "ś")
+  l_stroke (cmd wtype "ł")
+  z_acute  (cmd wtype "ź")
+  c_acute  (cmd wtype "ć")
+  n_acute  (cmd wtype "ń")
+  z_dot    (cmd wtype "ż")
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  caps a    s    d    f    g    h    j    k    l    ;    '    \
+  lsft 102d z    x    c    v    b    n    m    ,    .    /    rsft
+    lctl lalt lmet           spc           rmet ralt left down up   rght
+)
+
+(deflayer base
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
+  tab '    ,    .    p    y    f    g    c    r    l    /    =    ret
+  @caps_toggle @a    @o    @e    @u    i    d    @h    @t    @n    @s    -    \
+  lsft grv ;    q    j    k    x    b    m    w    v    z    rsft
+  lctl lmet lalt        spc        rmet ralt left down up   rght
+)
+
+(deflayer polish_dia
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
+  tab '    ,    .    p    y    f    g    c    r    @l_stroke    /    =    ret
+  @caps_toggle @a_ogonek o    @e_ogonek u    i    d    h    t    @n_acute @s_acute -    \
+  lsft 102d ;    q    j    k    @z_acute    b    m    w    v    @z_dot rsft
+  lctl lmet lalt           spc           rmet ralt left down up   rght
+)
+

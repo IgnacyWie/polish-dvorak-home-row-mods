@@ -1,5 +1,8 @@
 # Kanata Dvorak Configuration with Home Row Modifiers and Polish Diacritics
 
+
+
+
 This configuration provides a streamlined keyboard remapping setup using [Kanata](https://github.com/jtroo/kanata), combining:
 
 * **Dvorak layout** for ergonomic typing
@@ -7,7 +10,7 @@ This configuration provides a streamlined keyboard remapping setup using [Kanata
 * **Polish diacritics layer**, toggleable without interfering with modifier behavior
 * **Wayland-based `wtype` integration** for seamless Unicode character input
 
----
+![my_keymap](https://github.com/user-attachments/assets/be4e4f2b-fae0-4c30-b911-f4a5f170a427)
 
 ## Features
 
